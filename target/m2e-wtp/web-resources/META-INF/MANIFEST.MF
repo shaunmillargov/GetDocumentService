@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: get-document-v1-service
+Implementation-Version: 0.0.1
+Built-By: shaun
+Implementation-Vendor-Id: com.example
+Build-Jdk: 1.8.0_292
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/getDocument
+Created-By: Maven Integration for Eclipse
+

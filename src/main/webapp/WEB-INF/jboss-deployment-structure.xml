@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.1">
+    <deployment>
+        <exclusions>
+            <module name="javaee.api"/>
+            <module name="javax.validation.api"/>
+            <module name="javax.faces.api"/>
+            <module name="org.hibernate.validator"/>
+        </exclusions>
+    </deployment>
+</jboss-deployment-structure>

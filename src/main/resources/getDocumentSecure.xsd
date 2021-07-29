@@ -1,0 +1,47 @@
+<xsd:schema
+	targetNamespace="http://courts.gov.bc.ca/CCD.Source.GetDocumentSecure.ws:GetDocumentSecure"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://courts.gov.bc.ca/CCD.Source.GetDocumentSecure.ws:GetDocumentSecure"
+	xmlns:xmime="http://www.w3.org/2005/05/xmlmime">
+
+	<xsd:element name="getDocumentSecure">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DocumentSecureRequest" type="tns:DocumentSecureRequest" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="DocumentSecureRequest">
+		<xsd:sequence>
+			<xsd:element name="RequestAgencyIdentifierId"
+				nillable="true" type="xsd:string" />
+			<xsd:element name="RequestPartId" type="xsd:string" />
+			<xsd:element name="RequestDtm" type="xsd:string" />
+			<xsd:element name="ApplicationCd" type="xsd:string" />
+			<xsd:element name="DocumentId" type="xsd:string" />
+			<xsd:element name="CourtDivisionCd" type="xsd:string" />
+			<xsd:element name="PhysicalFileId" nillable="true" type="xsd:string" minOccurs="0" />
+			<xsd:element name="MdocJustinNo" nillable="true" type="xsd:string" minOccurs="0" />
+			<!-- optional -->
+			<xsd:element name="FlattenYN" nillable="true" minOccurs="0" type="xsd:string"/> 
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="getDocumentSecureResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="DocumentResponse" nillable="true" type="tns:DocumentResult" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="DocumentResult">
+		<xsd:sequence>
+			<xsd:element name="B64Content" nillable="true" type="xsd:string" />
+			<xsd:element name="ResultCd" nillable="true" type="xsd:string" />
+			<xsd:element name="ResultMessage" nillable="true" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

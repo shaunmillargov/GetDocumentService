@@ -1,0 +1,4 @@
+GetDocumentService GIT Repo: 
+
+https://jag.gov.bc.ca/scv/gitlist/
+https://jag.gov.bc.ca/git/scv/getDocumentService.git
