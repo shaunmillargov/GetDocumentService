@@ -23,8 +23,8 @@ mvn spring-boot:run
 
 ## WSDL Endpoint(s) 
 
-http://localhost:8082/GetDocument/ws/getDocument.wsdl
-http://localhost:8082/GetDocument/ws/getDocumentSecure.wsdl
+http://localhost:8083/GetDocument/ws/getDocument.wsdl
+http://localhost:8083/GetDocument/ws/getDocumentSecure.wsdl
 
 ## Use of the 'Fixed' Wsdl Def classes
 See wsdlfix folder. These classes were created to fix an issue whereby the XJC JAXB compiler was unable, 

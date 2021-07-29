@@ -38,57 +38,41 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		return new ServletRegistrationBean<>(servlet, "/ws/*");
 	}
 
-	@Bean(name = "getDocument")
-	public Wsdl11Definition  defaultWsdl11Definition(XsdSchema getDocumentSchema) {
-		
-		//Note the use of the 'Fixed' Wsdl11Def class'. This is required to provide the 'like for like' 
-		//request structure used by wMethods originally.  
-		FixedWsdl11Definition wsdl11Definition = new FixedWsdl11Definition();
-		
-		wsdl11Definition.setPortTypeName("GetDocumentPort");
-		wsdl11Definition.setCreateSoap12Binding(true);
-		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setRequestSuffix(""); //must be set to empty string
-		wsdl11Definition.setTargetNamespace(CCDwsConstants.NAMESPACE_URI);
-		wsdl11Definition.setSchema(getDocumentSchema);
-		return wsdl11Definition;
-	}
-	
 //	@Bean(name = "getDocument")
 //	public Wsdl11Definition  defaultWsdl11Definition(XsdSchema getDocumentSchema) {
 //		
 //		//Note the use of the 'Fixed' Wsdl11Def class'. This is required to provide the 'like for like' 
 //		//request structure used by wMethods originally.  
-//		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+//		FixedWsdl11Definition wsdl11Definition = new FixedWsdl11Definition();
 //		
 //		wsdl11Definition.setPortTypeName("GetDocumentPort");
 //		wsdl11Definition.setCreateSoap12Binding(true);
 //		wsdl11Definition.setLocationUri("/ws");
-//	
+//		wsdl11Definition.setRequestSuffix(""); //must be set to empty string
 //		wsdl11Definition.setTargetNamespace(CCDwsConstants.NAMESPACE_URI);
 //		wsdl11Definition.setSchema(getDocumentSchema);
 //		return wsdl11Definition;
 //	}
+	
+	@Bean(name = "getDocument")
+	public Wsdl11Definition  defaultWsdl11Definition(XsdSchema getDocumentSchema) {
+		
+		//Note the use of the 'Fixed' Wsdl11Def class'. This is required to provide the 'like for like' 
+		//request structure used by wMethods originally.  
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		
+		wsdl11Definition.setPortTypeName("GetDocumentPort");
+		wsdl11Definition.setCreateSoap12Binding(true);
+		wsdl11Definition.setLocationUri("/ws");
+	
+		wsdl11Definition.setTargetNamespace(CCDwsConstants.NAMESPACE_URI);
+		wsdl11Definition.setSchema(getDocumentSchema);
+		return wsdl11Definition;
+	}
 
 	@Bean
 	public XsdSchema getDocumentSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("getDocument.xsd"));
-	}
-	
-	@Bean(name = "getDocumentSecure")
-	public Wsdl11Definition  defaultWsdl11DefinitionSecure(XsdSchema getDocumentSecureSchema) {
-		
-		//Note the use of the 'Fixed' Wsdl11Def class'. This is required to provide the 'like for like' 
-		//request structure used by wMethods originally.  
-		FixedWsdl11Definition wsdl11Definition = new FixedWsdl11Definition();
-		
-		wsdl11Definition.setPortTypeName("GetDocumentSecurePort");
-		wsdl11Definition.setCreateSoap12Binding(true);
-		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setRequestSuffix(""); //must be set to empty string
-		wsdl11Definition.setTargetNamespace(CCDwsConstants.NAMESPACE_URI_SECURE);
-		wsdl11Definition.setSchema(getDocumentSecureSchema);
-		return wsdl11Definition;
 	}
 	
 //	@Bean(name = "getDocumentSecure")
@@ -96,16 +80,32 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 //		
 //		//Note the use of the 'Fixed' Wsdl11Def class'. This is required to provide the 'like for like' 
 //		//request structure used by wMethods originally.  
-//		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+//		FixedWsdl11Definition wsdl11Definition = new FixedWsdl11Definition();
 //		
 //		wsdl11Definition.setPortTypeName("GetDocumentSecurePort");
 //		wsdl11Definition.setCreateSoap12Binding(true);
 //		wsdl11Definition.setLocationUri("/ws");
-//		
+//		wsdl11Definition.setRequestSuffix(""); //must be set to empty string
 //		wsdl11Definition.setTargetNamespace(CCDwsConstants.NAMESPACE_URI_SECURE);
 //		wsdl11Definition.setSchema(getDocumentSecureSchema);
 //		return wsdl11Definition;
 //	}
+	
+	@Bean(name = "getDocumentSecure")
+	public Wsdl11Definition  defaultWsdl11DefinitionSecure(XsdSchema getDocumentSecureSchema) {
+		
+		//Note the use of the 'Fixed' Wsdl11Def class'. This is required to provide the 'like for like' 
+		//request structure used by wMethods originally.  
+		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
+		
+		wsdl11Definition.setPortTypeName("GetDocumentSecurePort");
+		wsdl11Definition.setCreateSoap12Binding(true);
+		wsdl11Definition.setLocationUri("/ws");
+		
+		wsdl11Definition.setTargetNamespace(CCDwsConstants.NAMESPACE_URI_SECURE);
+		wsdl11Definition.setSchema(getDocumentSecureSchema);
+		return wsdl11Definition;
+	}
 	
 	@Bean
 	public XsdSchema getDocumentSecureSchema() {
