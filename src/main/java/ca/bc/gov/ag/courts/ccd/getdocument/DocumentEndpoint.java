@@ -1,6 +1,5 @@
 package ca.bc.gov.ag.courts.ccd.getdocument;
 
-import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -25,8 +24,6 @@ import ca.bc.gov.courts.ccd_source_getdocument_ws.getdocument.GetDocumentRespons
 @Endpoint
 public class DocumentEndpoint {
 
-	protected Logger log = Logger.getLogger(this.getClass());
-
 	@Autowired
 	public DocumentEndpoint() {
 	}
@@ -38,9 +35,9 @@ public class DocumentEndpoint {
 		GetDocumentResponse response = new GetDocumentResponse();
 		response.setDocumentResponse(new DocumentResult());
 
-		log.info("\n-----");
-		log.info("Received DocumentId: " + request.getDocumentRequest().getDocumentId());
-		log.info("Received CourtDivisionCd: " + request.getDocumentRequest().getCourtDivisionCd());
+		System.out.println("\n-----");
+		System.out.println("Received DocumentId: " + request.getDocumentRequest().getDocumentId());
+		System.out.println("Received CourtDivisionCd: " + request.getDocumentRequest().getCourtDivisionCd());
 
 		response.getDocumentResponse().setResultCd("0");
 		response.getDocumentResponse().setResultMessage("success");
